@@ -25,7 +25,7 @@ bun init
 
 Select the **Blank** project template
 
-Enable workspaces in package.json:
+Enable workspaces in **package.json**:
 ```bash
 "workspaces": ["packages/*"]
 ```
@@ -58,7 +58,7 @@ bun install
 bun run dev
 ```
 
-Add proxy in vite.config.ts:
+Add proxy in **vite.config.ts** (client):
 ```bash
 server: {
   proxy: {
@@ -68,12 +68,12 @@ server: {
 ```
 
 ## Run Client & Server Together
-Install concurrently (root):
+Install **concurrently** (root):
 ```bash
 bun add -d concurrently
 ```
 
-Create or update index.ts in the root:
+Create or update **index.ts** in the root:
 ```bash
 import concurrently from 'concurrently';
 
@@ -93,7 +93,7 @@ concurrently([
 ]);
 ```
 
-Add script in root package.json:
+Add script in **package.json** (root):
 ```bash
 "scripts": {
   "dev": "bun run index.ts"
@@ -111,7 +111,7 @@ cd packages/client
 bun install tailwindcss @tailwindcss/vite
 ```
 
-Configure packages/client/vite.config.ts:
+Configure **vite.config.ts** (client):
 ```bash
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -128,7 +128,7 @@ export default defineConfig({
 });
 ```
 
-Import Tailwind in index.css:
+Import Tailwind in **index.css**:
 ```bash
 @import "tailwindcss";
 ```
@@ -146,12 +146,34 @@ Install in root:
 bun add -d prettier
 ```
 
-Add .prettierrc and script:
+For styling rules create a **.prettierrc** file in root:
+```bash
+{
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "es5",
+  "printWidth": 80,
+  "tabWidth": 3
+}
+```
+- **singleQuote** – Uses single quotes (') instead of double quotes (") in JavaScript files.
+Note: JSON files must always use double quotes.
+- **semi** – Adds a semicolon at the end of each statement.
+- **trailingComma** – Controls whether Prettier adds a trailing comma to the last item in:
+  - arrays
+  - objects
+  - function arguments
+  With "es5", trailing commas are added where valid in ES5 (but not in function definitions or inline arrow functions).
+
+Add script in **package.json** (root):
 ```bash
 "scripts": {
   "format": "prettier --write ."
 }
 ```
+
+To avoid formatting third-party code (such as dependencies), create a **.prettierignore** file in the root of your project.
+This file specifies which files or directories Prettier should ignore, like node_modules, bun.lock.
 
 Run:
 ```bash
