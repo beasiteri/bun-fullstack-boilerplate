@@ -2,12 +2,12 @@
 
 A modern full-stack starter template built with:
 - **[Bun](https://bun.com)** – fast JavaScript runtime 
-- **Express** – backend API
-- **React** + **Vite** + **TypeScript** – frontend
-- **TailwindCSS** – styling
-- **shadcn/ui** – UI components
-- **Prettier** – code formatting
-- **Husky** + **lint-staged** – pre-commit formatting
+- **[Express](https://expressjs.com/)** – backend API
+- **[React](https://react.dev)** + **[Vite](https://vite.dev/)** + **[TypeScript](https://www.typescriptlang.org/)** – frontend
+- **[TailwindCSS](https://tailwindcss.com/)** – styling
+- **[shadcn/ui](https://ui.shadcn.com/)** – UI components
+- **[Prettier](https://prettier.io/)** – code formatting
+- **[Husky](https://typicode.github.io/husky/)** + **[lint-staged](https://github.com/lint-staged/lint-staged)** – pre-commit formatting
   
 Designed for scalable full-stack development using a clean monorepo structure.
 
