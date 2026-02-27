@@ -109,7 +109,24 @@ cd packages/client
 bun install tailwindcss @tailwindcss/vite
 ```
 
-Add Tailwind plugin to vite.config.ts and import in index.css:
+Configure packages/client/vite.config.ts:
+```bash
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000',
+    },
+  },
+});
+```
+
+Import Tailwind in index.css:
 ```bash
 @import "tailwindcss";
 ```
